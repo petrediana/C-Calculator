@@ -113,6 +113,13 @@ namespace Calculator
             }
             Result_Value = Double.Parse(textBox_Result.Text);
             label_Show_Op.Text = " ";
+
+
+            
+            // Practicing How to use Github
+            int num1 = 10 ; int num2 = 20
+            int result = a + b;
+            Console.WriteLine("The Result = " + ( a + b));
         }
     }
 }
