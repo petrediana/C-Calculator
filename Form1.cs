@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +16,6 @@ namespace Calculator
         String Operator_Performed = " ";
         bool PerformedOp = false;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +23,6 @@ namespace Calculator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -32,29 +30,25 @@ namespace Calculator
             // numbers button and point
             if (textBox_Result.Text == "0" || PerformedOp)
                 textBox_Result.Clear();
-
             PerformedOp = false;
             Button button = (Button)sender;
-            if(button.Text == ".")
+            if (button.Text == ".")
             {
-                if(!textBox_Result.Text.Contains("."))
+                if (!textBox_Result.Text.Contains("."))
                     textBox_Result.Text += button.Text;
             }
-
             else
-            textBox_Result.Text += button.Text;
+                textBox_Result.Text += button.Text;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Operator_click_Event(object sender, EventArgs e)
         {
-            // +, -, *, / operators
+            // +, -, *, /, % operators
             Button button = (Button)sender;
-
             if (Result_Value != 0)
             {
                 button16.PerformClick();
@@ -64,7 +58,6 @@ namespace Calculator
             }
             else
             {
-
                 Operator_Performed = button.Text;
                 Result_Value = Double.Parse(textBox_Result.Text);
                 label_Show_Op.Text = Result_Value + " " + Operator_Performed;
@@ -94,22 +87,20 @@ namespace Calculator
                 case "+":
                     textBox_Result.Text = (Result_Value + Double.Parse(textBox_Result.Text)).ToString();
                     break;
-
                 case "-":
                     textBox_Result.Text = (Result_Value - Double.Parse(textBox_Result.Text)).ToString();
                     break;
-
                 case "*":
                     textBox_Result.Text = (Result_Value * Double.Parse(textBox_Result.Text)).ToString();
                     break;
-
                 case "/":
                     textBox_Result.Text = (Result_Value / Double.Parse(textBox_Result.Text)).ToString();
                     break;
-
+                case "%":
+                    textBox_Result.Text = (Result_Value % Double.Parse(textBox_Result.Text)).ToString();
+                    break;
                 default:
                     break;
-
             }
             Result_Value = Double.Parse(textBox_Result.Text);
             label_Show_Op.Text = " ";
